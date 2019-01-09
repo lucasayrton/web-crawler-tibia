@@ -1,5 +1,5 @@
 {
-  "name": "web-crawler-tibia-bosses",
+  "name": "web-crawler-tibia",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,7 +8,8 @@
     "debug": "node --inspect src/index.js"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "node-cron": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "^5.12.0",

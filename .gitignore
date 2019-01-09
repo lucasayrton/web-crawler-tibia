@@ -5,3 +5,6 @@ node_modules/
 tmp/
 log/*.log
 !log/.gitkeep
+
+
+.env
