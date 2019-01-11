@@ -4,6 +4,7 @@
 node_modules/
 tmp/
 log/*.log
+log/*.json
 !log/.gitkeep
 
 

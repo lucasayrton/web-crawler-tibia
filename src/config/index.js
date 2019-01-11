@@ -1,11 +1,16 @@
-const cron = require('node-cron');
+const dotenv = require('dotenv');
 
-cron.schedule(
-  '* 6 * * *',
-  () => {
-    console.log('running a task every 6am - Campo Grande/MS');
-  },
-  {
-    timezone: 'America/Campo_Grande',
-  },
-);
+class Config {
+  constructor() {
+    this.loadEnvironments();
+  }
+
+  loadEnvironments() {
+    this.dotEnvResult = dotenv.config();
+    if (this.dotEnvResult.error) {
+      throw new Error('Ocorreu um erro ao carregar as variáveis de ambiente');
+    }
+  }
+}
+
+module.exports = new Config();
