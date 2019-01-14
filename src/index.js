@@ -1,7 +1,8 @@
 require('./config');
 const BoImportation = require('./bo/BoImportation.js');
+const BoCron = require('./bo/BoCron.js');
 
 (async () => {
-  const response = await BoImportation.importStatisticsAllWorld();
-  const a = 1;
+  console.log('Web Crawler Tibia iniciado!');
+  await BoCron.loadStatistics();
 })();

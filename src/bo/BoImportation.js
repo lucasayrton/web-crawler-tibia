@@ -5,15 +5,10 @@ const BoApparition = require('./BoApparition');
 
 /* eslint class-methods-use-this: ["error", { "exceptMethods": ["importHistory"] }] */
 class BoImportation {
-  importStatisticsFromWorldByName(name) {
-    const statistics = BoCrawlerTibia.getKillStatisticsWorld(name);
-    return statistics;
-  }
-
   async importStatisticsAllWorld() {
     const worlds = await BoWorld.findAll();
     for (const world of worlds) {
-      const statistics = await this.importStatisticsFromWorldByName(world.name);
+      const statistics = await BoCrawlerTibia.getKillStatisticsWorl(world.name);
       const monsters = await BoMonster.findAll();
       for (const statistic of statistics) {
         const monster = monsters.find(monster => monster.name === statistic.name);
@@ -31,6 +26,7 @@ class BoImportation {
         }
       }
     }
+    return true;
   }
 }
 
