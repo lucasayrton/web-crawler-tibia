@@ -2,5 +2,6 @@ require('./config');
 const BoImportation = require('./bo/BoImportation.js');
 
 (async () => {
-  await BoImportation.importStatisticsAllWorld();
+  const response = await BoImportation.importStatisticsAllWorld();
+  const a = 1;
 })();
