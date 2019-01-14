@@ -1,24 +1,25 @@
 const cheerio = require('cheerio');
+const capitalize = require('./../utils/capitalize');
 
 /* eslint class-methods-use-this: ["error", { "exceptMethods":
 ["getWorlds"] }] */
 
 class AdpHtmlTibia {
-  getWorlds(html) {
+  getKillStatistics(html) {
     const $ = cheerio.load(html);
-    const options = $('div#killstatistics select[name=world] option');
-    if (!options.length) throw new Error("Can't get the options of worlds");
+    const content = $(
+      '.BoxContent > form:nth-child(1) > table:nth-child(4) > tbody > tr+tr~tr~tr:not(:last-child)',
+    );
+    if (!content.length) throw new Error("Can't get the options of worlds");
     const data = [];
-    options.each((index, option) => {
-      if (option.attribs.value !== '') {
-        data.push(option.attribs.value);
+    content.each((index, tr) => {
+      const name = capitalize(tr.children[0].children[0].data.trim());
+      const death = tr.children[2].children[0].data.trim();
+      if (name !== '') {
+        data.push({ name, death });
       }
     });
     return data;
-  }
-
-  getKillStatistics(world, html) {
-    const $ = cheerio.load(html);
   }
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "web-crawler-tibia-bosses",
+  "name": "web-crawler-tibia",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.2.0",
     "global": "^4.3.2",
+    "mongoose": "^5.4.3",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },

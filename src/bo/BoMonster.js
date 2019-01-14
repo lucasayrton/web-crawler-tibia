@@ -1,10 +1,24 @@
+const Monster = require('./../models/Monster');
+
 class BoMonster {
-  findAllMonsters() {
-    return true;
+  async findAll() {
+    const monsters = await Monster.find({});
+    return monsters;
   }
 
-  save(monster, world) {
-    return true;
+  async findByName(name) {
+    const monster = await Monster.findOne({ name });
+    return monster;
+  }
+
+  async create(monster) {
+    const newMonster = await Monster.create(monster);
+    return newMonster;
+  }
+
+  async save(monster) {
+    const savedMonster = await Monster.updateOne({ _id: monster._id }, monster);
+    return savedMonster;
   }
 }
 

@@ -1,7 +1,6 @@
 require('./config');
-const BoCrawlerTibia = require('./bo/BoCrawlerTibia');
+const BoImportation = require('./bo/BoImportation.js');
 
 (async () => {
-  // const response = BoCrawlerTibiaBosses.getWorldData('inabra');
-  const response = await BoCrawlerTibia.getKillStaticsWorld();
+  await BoImportation.importStatisticsAllWorld();
 })();

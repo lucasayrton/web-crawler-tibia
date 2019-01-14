@@ -6,8 +6,8 @@ const dirTestFile = file => path.resolve(__dirname, '..', '..', 'examples', file
 
 describe('AdpHtmlTibiaBosses', () => {
   it('getWorlds', async () => {
-    const html = await loadHtmlFile(dirTestFile('kill-statistics.html'));
-    const result = AdpHtmlTibia.getWorlds(html);
+    const html = await loadHtmlFile(dirTestFile('statistics.html'));
+    const result = AdpHtmlTibia.getKillStatistics(html);
     expect(result.length).toBeGreaterThan(0);
   });
 });
