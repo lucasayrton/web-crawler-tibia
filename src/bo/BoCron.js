@@ -4,7 +4,7 @@ const BoImportation = require('./BoImportation');
 class BoCron {
   async loadStatistics() {
     cron.schedule(
-      '32 13 * * *',
+      '0 8 * * *',
       async () => {
         console.log('Cron iniciado...');
         const startTime = new Date();
